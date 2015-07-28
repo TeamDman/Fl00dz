@@ -1,0 +1,16 @@
+[
+{
+  "modid": "Fl00dz",
+  "name": "Fl00dz",
+  "description": "Floodgate mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TeamDman_9201","Saereth prob"],
+  "credits": "Buildcraft devs",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
