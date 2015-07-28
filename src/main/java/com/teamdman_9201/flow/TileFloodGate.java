@@ -161,6 +161,10 @@ public class TileFloodGate extends TileEntity implements IFluidHandler {
         return pumpQueue;
     }
 
+    public boolean[] getBlocked() {
+        return blockedSides;
+    }
+
     /**
      * Nasty expensive function, don't call if you don't have to.
      */
@@ -279,6 +283,18 @@ public class TileFloodGate extends TileEntity implements IFluidHandler {
         }
     }
 
+    public void switchSide(ForgeDirection side) {
+        System.out.println("Csides=" + side.ordinal() + "=" + blockedSides[side.ordinal()]);
+        if (side.ordinal() != 1) {
+            blockedSides[side.ordinal()] = !blockedSides[side.ordinal()];
+            System.out.println("Ssides=" + side.ordinal() + "=" + blockedSides[side.ordinal()]);
+
+            rebuildQueue();
+//            sendNetworkUpdate(); //idk what to put here instead .-.
+            worldObj.markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord, xCoord, yCoord, zCoord);
+        }
+    }
+
 //    public void switchSide(ForgeDirection side) {
 //        if (side.ordinal() != 1) {
 //            blockedSides[side.ordinal()] = !blockedSides[side.ordinal()];
@@ -288,6 +304,7 @@ public class TileFloodGate extends TileEntity implements IFluidHandler {
 //            worldObj.markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord, xCoord, yCoord, zCoord);
 //        }
 //    }
+
     @Override
     public void invalidate() {
         super.invalidate();
