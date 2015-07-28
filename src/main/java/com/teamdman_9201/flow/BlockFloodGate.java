@@ -2,7 +2,7 @@
 //Licence 1.0, or MMPL [I think]
 //hi sae <3
 
-package com.teamdman_9201.fl00dz;
+package com.teamdman_9201.flow;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
