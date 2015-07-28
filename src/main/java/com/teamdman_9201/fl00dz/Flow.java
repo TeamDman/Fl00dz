@@ -14,8 +14,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 /**
  * Created by TeamDman on 2015-07-26.
  */
-@Mod(name = "Fl00dz", version = Version.VERSION, modid = "Fl00dz")
-public class Fl00dz {
+@Mod(name = "Flow", version = Version.VERSION, modid = "Flow")
+public class Flow {
     public static Block floodgate;
 
     @Mod.EventHandler
