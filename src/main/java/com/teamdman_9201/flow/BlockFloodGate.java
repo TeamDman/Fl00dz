@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -76,8 +77,8 @@ public class BlockFloodGate extends BlockContainer {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
         super.registerBlockIcons(register);
-        valve = register.registerIcon("fl00dz:FloodGateValve");
-        transparent = register.registerIcon("fl00dz:FloodGateSide");
+        valve = register.registerIcon("flow:FloodGateValve");
+        transparent = register.registerIcon("flow:FloodGateSide");
     }
 
 //    @Override
@@ -99,6 +100,7 @@ public class BlockFloodGate extends BlockContainer {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata) {
-        return valve;
+        
+        return ForgeDirection.getOrientation(side) == ForgeDirection.DOWN ? valve : transparent;
     }
 }
