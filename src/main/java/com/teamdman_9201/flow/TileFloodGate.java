@@ -13,6 +13,8 @@ package com.teamdman_9201.flow;
  */
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockStaticLiquid;
+import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -22,6 +24,7 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
+import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fluids.IFluidHandler;
 
 import java.util.Deque;
@@ -67,6 +70,7 @@ public class TileFloodGate extends TileEntity implements IFluidHandler {
             return;
         }
 
+        //redstone control temp disabled
 //        if (powered) {
 //            return;
 //        }
@@ -217,7 +221,14 @@ public class TileFloodGate extends TileEntity implements IFluidHandler {
     }
 
     private boolean canPlaceFluidAt(Block block, int x, int y, int z) {
-        return BlockUtils.isFullFluidBlock(block, worldObj, x, y, z); //BuildCraftAPI.isSoftBlock(worldObj, x, y, z) && !
+        if (block==Blocks.air)
+            return true;
+        if (block instanceof IFluidBlock || block instanceof BlockStaticLiquid)
+            return worldObj.getBlockMetadata(x, y, z) != 0;
+        return false;
+        //BlockUtils.isFullFluidBlock(block, worldObj, x, y, z) || block == Blocks.air;
+        //BuildCraftAPI.isSoftBlock(worldObj, x, y, z) && !
+        //worldProperties.get("soft").get(world, x, y, z);
     }
 
     public void onNeighborBlockChange(Block block) {
@@ -321,4 +332,6 @@ public class TileFloodGate extends TileEntity implements IFluidHandler {
     public boolean isSideBlocked(int side) {
         return blockedSides[side];
     }
+
+
 }
