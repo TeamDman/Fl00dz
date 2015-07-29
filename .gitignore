@@ -6,7 +6,11 @@
 bin
 eclipse
 idea
+logs/
 build
+saves/
+asm/
+crash-reports/
 gradlew
 run/*
 out/*
@@ -246,3 +250,16 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 eclipse/logs/fml-client-latest.log
+asm/ccl_modular/codechicken#nei#guihook#DefaultSlotClickHandler.txt
+config/CodeChickenCore.cfg
+usernamecache.json
+mods/NotEnoughItems-1.7.10-1.0.5.111-universal.jar
+mods/EvilCraft-1.7.10-0.8.7.jar
+config/CodeChickenLib.cfg
+config/evilcraft.cfg
+crash-reports/crash-2015-07-29_00.30.25-client.txt
+config/splash.properties
+mods/1.7.10/CodeChickenLib-1.7.10-1.1.3.138-universal.jar
+options.txt
+mods/CodeChickenCore-1.7.10-1.0.7.46-universal.jar
+config/NEI/client.cfg
